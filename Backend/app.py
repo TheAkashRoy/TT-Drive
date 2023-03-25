@@ -35,7 +35,7 @@ if __name__ == "__main__":
   # text = "this is that"
   # uid = shortuuid.ShortUUID().random(length=4)
   # collection.insert_one({"_id":uid, "text":text})
-  uid = "4zv8"
-  t = collection.find_one({"_id":uid})
-  print(t)
+  # uid = "4zv8"
+  # t = collection.find_one({"_id":uid})
+  # print(t)
   # collection.insert_one({"_id":0, "text":"this is the The"})
