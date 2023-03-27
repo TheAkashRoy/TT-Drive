@@ -12,6 +12,10 @@ collection = db['text']
 
 
 app = Flask(__name__)
+@app.route("/")
+def hme():
+  d = "its working finally!"
+  return d
 
 # @app.route("/",methods = ['POST'])
 @app.route("/insert/<data>")
