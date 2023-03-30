@@ -5,8 +5,8 @@ import Access from './components/access';
 import {  Route, Routes } from "react-router-dom";
 function App() {
   return (
-    <>
-    <div className='bg-[#3A98B9]'>
+    <div className='bg-[#EEEEEE]'>
+    <div >
     <Navbar/>
     
 
@@ -15,7 +15,7 @@ function App() {
     <Route path="/"  element={<Generate/>} />
       <Route path="/access"  element={<Access/>} />
     </Routes>
-    </>
+    </div>
   );
 }
 
