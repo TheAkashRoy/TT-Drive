@@ -5,7 +5,7 @@ function Generate() {
     //const [code,setCode]=useState("");
   return (
     <div className='bg-[#EEEEEE]' >
-      <div className=' p-20 max-[500]:p-10'>
+      <div className=' p-20 '>
       <p className='text-4xl mb-4 text-[#393E46] font-semibold pt-3 max-[640px]:text-2xl'>Enter text here</p><br/>
       <TextareaAutosize
       aria-label="minimum height"
