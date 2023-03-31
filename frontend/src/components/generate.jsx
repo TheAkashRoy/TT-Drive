@@ -9,7 +9,7 @@ function Generate() {
       <p className='text-4xl mb-4 text-[#393E46] font-semibold pt-3 max-[640px]:text-2xl'>Enter text here</p><br/>
       <TextareaAutosize
       aria-label="minimum height"
-      maxRows={100}
+      minRows={12}
       className=' mb-12 text-md'
       placeholder="Your text area"
       style={{ minWidth: 200,maxWidth:1800 }}
