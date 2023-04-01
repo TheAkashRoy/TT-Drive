@@ -17,20 +17,21 @@ def hme():
   d = "its working finally!"
   return d
 
-# @app.route("/",methods = ['POST'])
-@app.route("/insert/<data>")
-def home(data):
+# @app.route("/insert/<data>")
+@app.route("/",methods = ['POST'])
+def home():
   if request.method == 'POST':
-    text = request.form['info']
+    print(request.form)
+    text = request.form['text']
     uid = shortuuid.ShortUUID().random(length=4)
     collection.insert_one({"_id":uid, "text":text})
     return redirect(url_for('success',name = uid))
   
-  text = data
-  uid = shortuuid.ShortUUID().random(length=4)
-  ct = datetime.datetime.now()
-  collection.insert_one({"_id":uid, "text":text,"timestamp": ct})
-  return redirect(url_for('success',uid = uid))
+  # text = data
+  # uid = shortuuid.ShortUUID().random(length=4)
+  # ct = datetime.datetime.now()
+  # collection.insert_one({"_id":uid, "text":text,"timestamp": ct})
+  # return redirect(url_for('success',uid = uid))
 
 @app.route('/success/<uid>')
 def success(uid):

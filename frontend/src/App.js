@@ -13,7 +13,7 @@ function App() {
     </div>
     <Routes>
     <Route path="/"  element={<Generate/>} />
-      <Route path="/access"  element={<Access/>} />
+    <Route path="/access"  element={<Access/>} />
     </Routes>
     </div>
   );
