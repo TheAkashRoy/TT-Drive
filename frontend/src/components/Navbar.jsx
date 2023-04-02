@@ -1,8 +1,9 @@
 import React,{useState} from 'react'
-import drive from '../assets/drive.png'
+
 function Navbar() {
   let [open, setOpen] = useState(false);
   return (
+    
     <div className='fixed top-0 z-20 w-full bg-gradient-to-r from-[#13396e] to-[#00ADB5]'>
     <div className=' flex p-3 justify-between'>
     <div><p className='text-slate-100 font-bold text-4xl max-[640px]:text-3xl font-Montserrat'>Temporary Text Drive</p></div>
