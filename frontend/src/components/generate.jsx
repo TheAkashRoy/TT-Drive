@@ -77,6 +77,7 @@ function Generate() {
       onChange={(e) => setText(e.target.value)}
     />
     <button className=' text-slate-800 font-semibold text-2xl bg-slate-100 w-40 rounded-lg p-1 shadow-xl border-2  border-blue-800'>Upload</button>
+    </form>
     {
       code?(<div className='flex flex-row mt-10'>
       <p className=' text-2xl text-slate-800 font-semibold' >Your Code:</p>
@@ -88,7 +89,7 @@ function Generate() {
     <button className='bg-[#17417b] text-[#FFFFFF] text-xl p-2 rounded-lg ml-5 font-Montserrat font-semibold'><a href="/access">Click here</a></button>
     </div>
     </div>
-    </form>
+    
     </div>
   )
 }
