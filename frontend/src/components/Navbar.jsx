@@ -1,5 +1,4 @@
 import React,{useState} from 'react'
-import drive from '../assets/drive.png'
 function Navbar() {
   let [open, setOpen] = useState(false);
   return (
