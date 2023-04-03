@@ -1,6 +1,7 @@
 import React,{useState} from 'react'
 import axios from 'axios';
 import TextareaAutosize from '@mui/base/TextareaAutosize';
+import Highlight from 'react-highlight'
 
 function Access() {
   const [code,setCode]=useState("");
@@ -27,16 +28,9 @@ function Access() {
      {
       text?(
         <div className='m'>
-        <TextareaAutosize
-      aria-label="minimum height"
-      minRows={12}
-      className=' mb-12 text-md'
-      placeholder="Your text area"
-      style={{ minWidth: 200,maxWidth:1800 }}
-      name="text"
-      value={text}
-    />
-    
+    <Highlight  >
+      {text}
+    </Highlight>
         </div>
       ):(<div></div>)
      }

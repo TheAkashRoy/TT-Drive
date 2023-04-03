@@ -1,6 +1,7 @@
 import React,{useState} from 'react'
 import TextareaAutosize from '@mui/base/TextareaAutosize';
 import axios from 'axios';
+
 function Generate() {
     const [text,setText]=useState("");
      const [code,setCode]=useState("");
@@ -66,6 +67,7 @@ function Generate() {
       <div className=' p-20 flex flex-col'>
       <form  onSubmit={submit}>
         <p className='text-4xl mb-4 text-[#393E46] font-semibold pt-3 max-[640px]:text-2xl'>Enter text here</p><br/>
+
         <TextareaAutosize
         aria-label="minimum height"
         minRows={12}
@@ -76,6 +78,7 @@ function Generate() {
         value={text}
         onChange={(e) => setText(e.target.value)}
         />
+        
         <button className=' text-slate-800 font-semibold text-2xl bg-slate-100 w-40 rounded-lg p-1 shadow-xl border-2  border-blue-800'>Upload</button>
         </form>
         {
