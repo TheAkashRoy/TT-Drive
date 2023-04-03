@@ -1,6 +1,0 @@
-6H1ZORqIJ5Pgr4aa
-nc3iezJqetnF0X0I //password
-emailforakashroy //USER
-
-//
-mongodb+srv://emailforakashroy:<password>@cluster0.hxo7td9.mongodb.net/?retryWrites=true&w=majority
