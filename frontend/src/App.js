@@ -1,6 +1,6 @@
 import './App.css';
-import Generate from './components/Generate';
 import Navbar from './components/Navbar';
+import Generate from './components/generate';
 function App() {
   return (
     <div className='bg-[#EEEEEE]'>
