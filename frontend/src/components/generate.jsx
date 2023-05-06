@@ -1,100 +1,117 @@
-import React,{useState} from 'react'
-import TextareaAutosize from '@mui/base/TextareaAutosize';
-import axios from 'axios';
+import React, { useState } from "react";
+import TextareaAutosize from "@mui/base/TextareaAutosize";
+import axios from "axios";
+import Highlight from "react-highlight";
+
 
 function Generate() {
-    const [text,setText]=useState("");
-     const [code,setCode]=useState("");
-    // const [data,setData]=useState(
-    //   {
-    //     text:""
-    //   }
-    // );
-    // const handleChange = (e) => {
-    //   const value = e.target.value;
-    //   setData({
-    //     ...data,
-    //     [e.target.name]: value
-    //   });
-    // };
-    // const submit=(e)=>{
-    //   e.preventDefault();
-    //   const userText = {
-    //     text: data.text,
-    //   };
-    //   console.log(userText);
-    //   axios.post("https://ttd-one.vercel.app/insert", userText).then((response) => {
-    //     console.log(response.status, response.data);
-    //   });
-    // }
-    // const handleSubmit=(e)=>{
-    //   e.preventDefault();
-    //   const userText = {
-    //     text: data.text,
-    //   };
-    //   console.log(userText);
-    //   fetch("https://ttd-one.vercel.app/insert", {
-    //     method: 'POST',
-    //     headers: {
-    //       'Content-Type': 'application/json'
-    //     },
-    //     body: JSON.stringify(userText)
-    //   })
-    //   .then(response => response.json())
-    //   .then(data => console.log(userText))
-    //   .catch(error => console.error(error));
-    // }
+  const [text, setText] = useState("");
+  const [code, setCode] = useState("");
+  const [oldCode, setOldCode] = useState("");
+  const [data, setData] = useState("");
+  const [copy, setCopy] = useState("Copy to Clipboard");
 
-    const submit = async (event) => {
-      event.preventDefault();
-      const formData = new FormData();
-      formData.append('text', text);
+  const find = async (event) => {
+    event.preventDefault();
+    let url = "https://ttd-one.vercel.app/find/";
+    url = url.concat(oldCode);
+    console.log(url);
+    axios.get(url).then(function (response) {
+      console.log(response.data);
+      setData(response.data);
+    });
+  };
 
-      axios.post('https://ttd-one.vercel.app/insert', formData, {
+  const submit = async (event) => {
+    event.preventDefault();
+    const formData = new FormData();
+    formData.append("text", text);
+
+    axios
+      .post("https://ttd-one.vercel.app/insert", formData, {
         headers: {
-          'Content-Type': 'multipart/form-data'
-        }
-      }).then(response => {
+          "Content-Type": "multipart/form-data",
+        },
+      })
+      .then((response) => {
         console.log(response.data);
         setCode(response.data);
-      }).catch(error => {
+      })
+      .catch((error) => {
         console.error(error);
       });
-
-    };
-  return (
-    <div className='bg-[#EEEEEE]' >
-      <div className=' p-20 flex flex-col'>
-      <form  onSubmit={submit}>
-        <p className='text-4xl mb-4 text-[#393E46] font-semibold pt-3 max-[640px]:text-2xl'>Enter text here</p><br/>
-
-        <TextareaAutosize
-        aria-label="minimum height"
-        minRows={12}
-        className=' mb-12 text-md'
-        placeholder="Your text area"
-        style={{ minWidth: 200,maxWidth:1800 }}
-        name="text"
-        value={text}
-        onChange={(e) => setText(e.target.value)}
-        />
-        
-        <button className=' text-slate-800 font-semibold text-2xl bg-slate-100 w-40 rounded-lg p-1 shadow-xl border-2  border-blue-800'>Upload</button>
-        </form>
-        {
-          code?(<div className='flex flex-row mt-10'>
-          <p className=' text-2xl text-slate-800 font-semibold' >Your Code:</p>
-          <div className='w-40 text-2xl text-slate-800 rounded-lg  ml-5'>{code}</div>
-          </div>):<div></div>
-        }
-        <div className='flex flex-row mt-5'>
-        <h2 className='font-semibold text-2xl'>If you have code</h2>
-        <button className='bg-[#17417b] text-[#FFFFFF] text-xl p-2 rounded-lg ml-5 font-Montserrat font-semibold'><a href="/access">Click here</a></button>
-        </div>
-      </div>
-      
-    </div>
-  )
+  };
+  function copyText() {
+    navigator.clipboard.writeText(data);
+    setCopy("Text Copied!");
 }
 
-export default Generate
+  return (
+    <div className="bg-[#FFC288]">
+      <div className=" p-20 flex flex-col textArea">
+        <div className="access flex items-center justify-center mt-3 ">
+          <div className="flex flex-row codeInput">
+            <span className="text-3xl  p-0 text-[#393E46] font-semibold  max-[640px]:text-2xl hide" style={{fontSize:'1.5em'}}>
+              Enter your code here
+            </span>
+            <input
+              className="text-2xl mx-3 bg-[#FCECDD]  rounded-lg p-1 text-[#0B2447] w-48 input"
+              style={{ height: "40px" }}
+              value={oldCode}
+              onChange={(e) => setOldCode(e.target.value)}
+            ></input>
+            <button
+              className=" text-[#FFFFFF] font-semibold text-2xl mx-3 rounded-lg p-1 w-28 shadow-xl bg-[#FF6701]"
+              style={{ height: "40px" }}
+              onClick={find}
+            >
+              Submit
+            </button>
+          </div>
+        </div>
+        {data ? (
+          <div className="my-3 py-3">
+            <button className="bg-[#FF6701] mb-3 hover:bg-[#FF6701] text-white font-bold py-2 px-4 rounded-full" onClick={copyText}>
+              {copy}
+            </button>
+            <Highlight className="bg-[#FCECDD] border-black border-2 border-dashed" >{data}</Highlight>
+          </div>
+        ) : (
+          <form onSubmit={submit}>
+            <TextareaAutosize
+              aria-label="minimum height"
+              minRows={15}
+              className=" mt-4 mb-3 text-md "
+              placeholder="Enter your texts, codes here and click the upload button to get a 4 character code"
+              style={{ minWidth: 200, maxWidth: 1800 }}
+              name="text"
+              value={text}
+              onChange={(e) => setText(e.target.value)}
+            />
+
+            {code ? (
+              <div className="mx-auto flex items-center justify-center">
+                <p className=" text-2xl text-slate-800 font-semibold">
+                  Your Code:
+                </p>
+                <div className="text-2xl text-slate-800 rounded-lg  ml-5">
+                  {code}
+                </div>
+              </div>
+            ) : (
+              <div>
+                <div className="mx-auto flex items-center justify-center">
+                  <button className="text-[#FFFFFF] font-semibold text-2xl mx-3 rounded-lg p-1 w-28 shadow-xl bg-[#FF6701]">
+                    Upload
+                  </button>
+                </div>
+              </div>
+            )}
+          </form>
+        )}
+      </div>
+    </div>
+  );
+}
+
+export default Generate;

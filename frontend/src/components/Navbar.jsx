@@ -1,20 +1,11 @@
 import React from 'react'
 function Navbar() {
   return (
-    <div className='fixed top-0 z-20 w-full bg-gradient-to-r from-[#13396e] to-[#00ADB5]'>
+    <div className='fixed top-0 z-20 w-full bg-gradient-to-r from-[#FEA82F] to-[#FEA82F]'>
     <div className=' flex p-3 justify-between'>
-    <div><p className='text-slate-100 font-bold text-4xl max-[640px]:text-3xl font-Montserrat'>Temporary Text Drive</p></div>
-    {/* <div
-          onClick={() => setOpen(!open)}
-          className="text-4xl  text-gray-100 font-bold"
-        >
-          <ion-icon name={open ? "close" : "menu"}></ion-icon>
-    </div>   */}
+    <div><a href="https://ttdrive.vercel.app/"><p className='text-white font-bold text-4xl max-[640px]:text-3xl font-Montserrat'>Temporary Text Drive</p></a></div>
+    <div className='mx-3'><a href='https://github.com/TheAkashRoy/TT-Drive' target="_blank" rel="noreferrer"> <i className="fa fa-github" href="github.com/TheAkashRoy"></i></a></div>
     </div>
-    {/* <ul className={`${open?'block':'hidden'} mx-auto`}>
-    <li className='text-slate-100 text-2xl  font-semibold  pb-3 pl-3'><a href="/">Home</a></li>
-    <li className='text-slate-100 text-2xl  font-semibold  pb-3 pl-3'><a href="/access">Access</a></li>
-    </ul> */}
     </div>
     
   )

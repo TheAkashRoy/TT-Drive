@@ -3,7 +3,7 @@ nav {
   justify-content: center;
   align-items: center;
   padding: 20px;
-  background-color: #333;
+  background-color: #FEA82F;
 }
 
 .Text {
@@ -27,7 +27,7 @@ h3 {
 input[type="text"], button[type="submit"], textarea {
   font-size: 16px;
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid #F6F5F5;
   border-radius: 4px;
   width: 100%;
   max-width: 400px;
@@ -48,5 +48,9 @@ button[type="submit"]:hover {
 
 textarea {
   height: 200px;
+  background-color: #FCECDD;
+  outline:none;
 }
-
+.fa-github{
+  font-size: 36px;
+}
