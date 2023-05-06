@@ -6,7 +6,7 @@ body {
     background-color: #FFC288;
   }
 
-@media (max-width: 395px) {
+@media (max-width: 1080px) {
   .hide{
     display: none;
   }
