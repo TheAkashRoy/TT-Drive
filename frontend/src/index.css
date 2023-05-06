@@ -5,3 +5,20 @@ body {
      /* Hide scrollbars */
     background-color: #FFC288;
   }
+
+@media (max-width: 395px) {
+  .hide{
+    display: none;
+  }
+  .codeInput{
+    margin-top: 5em;
+  }
+  .textArea{
+    padding: 2.5em;
+  }
+
+}
+
+@media (min-width: 395px) {
+
+}

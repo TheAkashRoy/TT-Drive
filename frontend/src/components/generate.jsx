@@ -43,10 +43,10 @@ function Generate() {
 
   return (
     <div className="bg-[#FFC288]">
-      <div className=" p-20 flex flex-col">
+      <div className=" p-20 flex flex-col textArea">
         <div className="access flex items-center justify-center mt-3 ">
-          <div className="flex flex-row">
-            <span className="text-3xl mb-3 p-0 text-[#393E46] font-semibold  max-[640px]:text-2xl">
+          <div className="flex flex-row codeInput">
+            <span className="text-3xl  p-0 text-[#393E46] font-semibold  max-[640px]:text-2xl hide" style={{fontSize:'1.5em'}}>
               Enter your code here
             </span>
             <input
@@ -73,7 +73,7 @@ function Generate() {
             <TextareaAutosize
               aria-label="minimum height"
               minRows={15}
-              className=" mt-4 mb-3 text-md"
+              className=" mt-4 mb-3 text-md "
               placeholder="Enter your texts, codes here and click the upload button to get a 4 character code"
               style={{ minWidth: 200, maxWidth: 1800 }}
               name="text"
