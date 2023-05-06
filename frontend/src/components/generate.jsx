@@ -58,6 +58,7 @@ function Generate() {
               className="text-2xl mx-3 bg-[#FCECDD]  rounded-lg p-1 text-[#0B2447] w-48 input"
               style={{ height: "40px" }}
               value={oldCode}
+              placeholder="Enter code here"
               onChange={(e) => setOldCode(e.target.value)}
             ></input>
             <button
