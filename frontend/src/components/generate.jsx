@@ -9,6 +9,7 @@ function Generate() {
   const [code, setCode] = useState("");
   const [oldCode, setOldCode] = useState("");
   const [data, setData] = useState("");
+  const [copy, setCopy] = useState("Copy to Clipboard");
 
   const find = async (event) => {
     event.preventDefault();
@@ -40,6 +41,10 @@ function Generate() {
         console.error(error);
       });
   };
+  function copyText() {
+    navigator.clipboard.writeText(data);
+    setCopy("Text Copied!");
+}
 
   return (
     <div className="bg-[#FFC288]">
@@ -56,7 +61,7 @@ function Generate() {
               onChange={(e) => setOldCode(e.target.value)}
             ></input>
             <button
-              className=" text-slate-800 font-semibold text-2xl bg-slate-100 mx-3 rounded-lg p-1 w-28 shadow-xl"
+              className=" text-[#FFFFFF] font-semibold text-2xl bg-slate-100 mx-3 rounded-lg p-1 w-28 shadow-xl bg-[#FF6701]"
               style={{ height: "40px" }}
               onClick={find}
             >
@@ -65,7 +70,10 @@ function Generate() {
           </div>
         </div>
         {data ? (
-          <div>
+          <div className="my-3 py-3">
+            <button className="bg-[#FF6701] mb-3 hover:bg-[#FF6701] text-white font-bold py-2 px-4 rounded-full" onClick={copyText}>
+              {copy}
+            </button>
             <Highlight className="bg-[#FCECDD] border-black border-2 border-dashed" >{data}</Highlight>
           </div>
         ) : (
@@ -93,7 +101,7 @@ function Generate() {
             ) : (
               <div>
                 <div className="mx-auto flex items-center justify-center">
-                  <button className="text-slate-800 font-semibold text-2xl bg-slate-100 w-40 rounded-lg p-1 shadow-xl border-2  border-blue-800">
+                  <button className="text-[#FFFFFF] font-semibold text-2xl bg-slate-100 mx-3 rounded-lg p-1 w-28 shadow-xl bg-[#FF6701]">
                     Upload
                   </button>
                 </div>
