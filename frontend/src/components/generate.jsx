@@ -61,7 +61,7 @@ function Generate() {
               onChange={(e) => setOldCode(e.target.value)}
             ></input>
             <button
-              className=" text-[#FFFFFF] font-semibold text-2xl bg-slate-100 mx-3 rounded-lg p-1 w-28 shadow-xl bg-[#FF6701]"
+              className=" text-[#FFFFFF] font-semibold text-2xl mx-3 rounded-lg p-1 w-28 shadow-xl bg-[#FF6701]"
               style={{ height: "40px" }}
               onClick={find}
             >
@@ -101,7 +101,7 @@ function Generate() {
             ) : (
               <div>
                 <div className="mx-auto flex items-center justify-center">
-                  <button className="text-[#FFFFFF] font-semibold text-2xl bg-slate-100 mx-3 rounded-lg p-1 w-28 shadow-xl bg-[#FF6701]">
+                  <button className="text-[#FFFFFF] font-semibold text-2xl mx-3 rounded-lg p-1 w-28 shadow-xl bg-[#FF6701]">
                     Upload
                   </button>
                 </div>
