@@ -47,22 +47,22 @@ function Generate() {
 }
 
   return (
-    <div className="bg-[#FFC288]">
+    <div className="bg-[#DDFFBC]">
       <div className=" p-20 flex flex-col textArea">
         <div className="access flex items-center justify-center mt-3 ">
           <div className="flex flex-row codeInput">
             <span className="text-3xl  p-0 text-[#393E46] font-semibold  max-[640px]:text-2xl hide" style={{fontSize:'1.5em'}}>
-              Enter your code here
+              Have a code?
             </span>
             <input
-              className="text-2xl mx-3 bg-[#FCECDD]  rounded-lg p-1 text-[#0B2447] w-48 input"
+              className="text-2xl mx-3 bg-[#FEFFDE]  rounded-lg p-1 text-[#0B2447] w-48 input"
               style={{ height: "40px" }}
               value={oldCode}
               placeholder="Enter code here"
               onChange={(e) => setOldCode(e.target.value)}
             ></input>
             <button
-              className=" text-[#FFFFFF] font-semibold text-2xl mx-3 rounded-lg p-1 w-28 shadow-xl bg-[#FF6701]"
+              className=" text-[#FFFFFF] font-semibold text-2xl mx-3 rounded-lg p-1 w-28 shadow-xl bg-[#52734D]"
               style={{ height: "40px" }}
               onClick={find}
             >
@@ -72,10 +72,10 @@ function Generate() {
         </div>
         {data ? (
           <div className="my-3 py-3">
-            <button className="bg-[#FF6701] mb-3 hover:bg-[#FF6701] text-white font-bold py-2 px-4 rounded-full" onClick={copyText}>
+            <button className="bg-[#52734D] mb-3 hover:bg-[#52734D] text-white font-bold py-2 px-4 rounded-full" onClick={copyText}>
               {copy}
             </button>
-            <Highlight className="bg-[#FCECDD] border-black border-2 border-dashed" >{data}</Highlight>
+            <Highlight className="bg-[#FEFFDE] border-black border-2 border-dashed" >{data}</Highlight>
           </div>
         ) : (
           <form onSubmit={submit}>
@@ -102,7 +102,7 @@ function Generate() {
             ) : (
               <div>
                 <div className="mx-auto flex items-center justify-center">
-                  <button className="text-[#FFFFFF] font-semibold text-2xl mx-3 rounded-lg p-1 w-28 shadow-xl bg-[#FF6701]">
+                  <button className="text-[#FFFFFF] font-semibold text-2xl mx-3 rounded-lg p-1 w-28 shadow-xl bg-[#52734D]">
                     Upload
                   </button>
                 </div>
