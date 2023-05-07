@@ -75,7 +75,7 @@ function Generate() {
             <button className="bg-[#52734D] mb-3 hover:bg-[#52734D] text-white font-bold py-2 px-4 rounded-full" onClick={copyText}>
               {copy}
             </button>
-            <Highlight className="bg-[#FCECDD] border-black border-2 border-dashed" >{data}</Highlight>
+            <Highlight className="bg-[#FEFFDE] border-black border-2 border-dashed" >{data}</Highlight>
           </div>
         ) : (
           <form onSubmit={submit}>
