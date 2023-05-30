@@ -47,7 +47,7 @@ function Generate() {
 }
 
   return (
-    <div className="bg-[#DDFFBC]">
+    <div className="bg-[#D3E0EA]">
       <div className=" p-20 flex flex-col textArea">
         <div className="access flex items-center justify-center mt-3 ">
           <div className="flex flex-row codeInput">
@@ -55,14 +55,14 @@ function Generate() {
               Have a code?
             </span>
             <input
-              className="text-2xl mx-3 bg-[#FEFFDE]  rounded-lg p-1 text-[#0B2447] w-48 input"
+              className="text-2xl mx-3 bg-[#F6F5F5]  rounded-lg p-1 text-[#0B2447] w-48 input"
               style={{ height: "40px" }}
               value={oldCode}
               placeholder="Enter code here"
               onChange={(e) => setOldCode(e.target.value)}
             ></input>
             <button
-              className=" text-[#FFFFFF] font-semibold text-2xl mx-3 rounded-lg p-1 w-28 shadow-xl bg-[#52734D]"
+              className=" text-[#FFFFFF] font-semibold text-2xl mx-3 rounded-lg p-1 w-28 shadow-xl bg-[#276678]"
               style={{ height: "40px" }}
               onClick={find}
             >
@@ -72,10 +72,10 @@ function Generate() {
         </div>
         {data ? (
           <div className="my-3 py-3">
-            <button className="bg-[#52734D] mb-3 hover:bg-[#52734D] text-white font-bold py-2 px-4 rounded-full" onClick={copyText}>
+            <button className="bg-[#276678] mb-3 hover:bg-[#276678] text-white font-bold py-2 px-4 rounded-full" onClick={copyText}>
               {copy}
             </button>
-            <Highlight className="bg-[#FEFFDE] border-black border-2 border-dashed" >{data}</Highlight>
+            <Highlight className="bg-[#F6F5F5] border-black border-2 border-dashed" >{data}</Highlight>
           </div>
         ) : (
           <form onSubmit={submit}>
@@ -102,7 +102,7 @@ function Generate() {
             ) : (
               <div>
                 <div className="mx-auto flex items-center justify-center">
-                  <button className="text-[#FFFFFF] font-semibold text-2xl mx-3 rounded-lg p-1 w-28 shadow-xl bg-[#52734D]">
+                  <button className="text-[#FFFFFF] font-semibold text-2xl mx-3 rounded-lg p-1 w-28 shadow-xl bg-[#276678]">
                     Upload
                   </button>
                 </div>
