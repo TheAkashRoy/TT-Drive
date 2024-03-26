@@ -10,9 +10,13 @@ function Generate() {
   const [oldCode, setOldCode] = useState("");
   const [data, setData] = useState("");
   const [copy, setCopy] = useState("Copy to Clipboard");
+  const [btnText, setBtnText] = useState("Upload");
+  const [submitBtnText, setSubmitBtnText] = useState("Submit");
+
 
   const find = async (event) => {
     event.preventDefault();
+    setSubmitBtnText("...")
     let url = "https://ttd-one.vercel.app/find/";
     url = url.concat(oldCode);
     console.log(url);
@@ -24,6 +28,7 @@ function Generate() {
 
   const submit = async (event) => {
     event.preventDefault();
+    setBtnText("...");
     const formData = new FormData();
     formData.append("text", text);
 
@@ -61,13 +66,17 @@ function Generate() {
               placeholder="Enter code here"
               onChange={(e) => setOldCode(e.target.value)}
             ></input>
+            {!data ? 
             <button
               className=" text-[#FFFFFF] font-semibold text-2xl mx-3 rounded-lg p-1 w-28 shadow-xl bg-[#276678]"
               style={{ height: "40px" }}
               onClick={find}
             >
-              Submit
+              {submitBtnText}
             </button>
+            :
+            <div></div>
+            }
           </div>
         </div>
         {data ? (
@@ -83,7 +92,7 @@ function Generate() {
               aria-label="minimum height"
               minRows={15}
               className=" mt-4 mb-3 text-md "
-              placeholder="Enter your texts, codes here and click the upload button to get a 4 character code"
+              placeholder="Enter your texts, codes here and click the upload button to get a 4 character code, vaild for 24 hrs"
               style={{ minWidth: 200, maxWidth: 1800 }}
               name="text"
               value={text}
@@ -103,7 +112,7 @@ function Generate() {
               <div>
                 <div className="mx-auto flex items-center justify-center">
                   <button className="text-[#FFFFFF] font-semibold text-2xl mx-3 rounded-lg p-1 w-28 shadow-xl bg-[#276678]">
-                    Upload
+                    {btnText}
                   </button>
                 </div>
               </div>
