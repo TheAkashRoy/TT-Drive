@@ -49,7 +49,7 @@ function Generate() {
   function copyText() {
     navigator.clipboard.writeText(data);
     setCopy("Text Copied!");
-}
+  }
 
   return (
     <div className="bg-[#D3E0EA]">
@@ -64,7 +64,16 @@ function Generate() {
               style={{ height: "40px" }}
               value={oldCode}
               placeholder="Enter code here"
-              onChange={(e) => setOldCode(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === 'Backspace'){
+                  setOldCode(oldCode.slice(0,-1))
+                }
+                else if (e.key === 'Enter') {
+                  find(e);
+                }else if( (e.key).length == 1){
+                  setOldCode(oldCode+ e.key)
+                }
+              }}
             ></input>
             {!data ? 
             <button

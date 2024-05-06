@@ -20,10 +20,11 @@ function FileUpload() {
       const response = await axios.post('https://ttd-one.vercel.app/upload', formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
-        }
+        },
+        timeout: 0
       });
-
       setResponse(response.data);
+      console.log(response.data);
       setError(null);
     } catch (error) {
       setResponse(null);
