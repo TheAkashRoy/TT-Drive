@@ -60,21 +60,20 @@ function Generate() {
               Have a code?
             </span>
             <input
-              className="text-2xl mx-3 bg-[#F6F5F5]  rounded-lg p-1 text-[#0B2447] w-48 input"
+              className="text-2xl mx-3 bg-[#F6F5F5] rounded-lg p-1 text-[#0B2447] w-48 input"
               style={{ height: "40px" }}
               value={oldCode}
               placeholder="Enter code here"
+              onChange={(e) => {
+                setOldCode(e.target.value);
+              }}
               onKeyDown={(e) => {
-                if (e.key === 'Backspace'){
-                  setOldCode(oldCode.slice(0,-1))
-                }
-                else if (e.key === 'Enter') {
+                if (e.key === 'Enter') {
                   find(e);
-                }else if( (e.key).length == 1){
-                  setOldCode(oldCode+ e.key)
                 }
               }}
             ></input>
+
             {!data ? 
             <button
               className=" text-[#FFFFFF] font-semibold text-2xl mx-3 rounded-lg p-1 w-28 shadow-xl bg-[#276678]"
